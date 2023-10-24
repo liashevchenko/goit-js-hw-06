@@ -2,10 +2,12 @@ const inputBlur = document.querySelector("#validation-input");
 
 inputBlur.addEventListener("blur", () => {
   if (inputBlur.value.length === parseInt(inputBlur.dataset.length)) {
-    inputBlur.classList.add("valid");
-    inputBlur.classList.remove("invalid");
+   validation("valid","invalid");
   } else {
-    inputBlur.classList.add("invalid");
-    inputBlur.classList.remove("valid");
+    validation("invalid", "valid");
   }
 });
+function validation(a, b) {
+    inputBlur.classList.add(a);
+    inputBlur.classList.remove(b);
+}

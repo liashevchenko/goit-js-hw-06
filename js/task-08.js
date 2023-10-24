@@ -4,12 +4,14 @@ const form = document.querySelector('.login-form');
   form.addEventListener('submit', function(event) {
     event.preventDefault();
 
-    const emailInput = form.elements.email;
-    const passwordInput = form.elements.password;
+    const emailInput = event.target.elements.email;
+    const passwordInput = event.target.elements.password;
 
-    if (emailInput.value === '' || passwordInput.value === '') {
+    if (emailInput.value.trim() === '' || passwordInput.value.trim() === '') {
       alert('Всі поля повинні бути заповнені');
-    } else {
+      return
+    } 
+
       const userData = {
         email: emailInput.value,
         password: passwordInput.value
@@ -17,6 +19,6 @@ const form = document.querySelector('.login-form');
 
       console.log(userData);
 
-      form.reset();
+      event.target.reset();
     }
-  });
+  );
